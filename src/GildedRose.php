@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
+use Exception;
+
 final class GildedRose
 {
     /**
@@ -20,7 +22,7 @@ final class GildedRose
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function updateQuality(): void
     {
@@ -46,30 +48,28 @@ final class GildedRose
             }
 
             $item->sell_in--;
-
-            echo $item . '<br>';
         }
     }
 
     /**
      * @param Item $item
-     * @throws \Exception
+     * @throws Exception
      */
     private function guardItemQualityLessThan50(Item $item): void
     {
         if ($item->quality > 50 && !$this->isLegendary($item)) {
-            throw new \Exception('Item quality cannot be more than 50');
+            throw new Exception('Item quality cannot be more than 50');
         }
     }
 
     /**
      * @param Item $item
-     * @throws \Exception
+     * @throws Exception
      */
     private function guardItemQualityNotNegative(Item $item): void
     {
         if ($item->quality < 0) {
-            throw new \Exception('Item quality cannot be negative');
+            throw new Exception('Item quality cannot be negative');
         }
     }
 

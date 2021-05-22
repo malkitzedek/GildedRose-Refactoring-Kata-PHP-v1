@@ -1,7 +1,2 @@
 .idea/
-/.idea
-/report.xml 
-/.phpstorm.meta.php 
-/.phpunit.result.cache
-/build
-/vendor
+vendor/
