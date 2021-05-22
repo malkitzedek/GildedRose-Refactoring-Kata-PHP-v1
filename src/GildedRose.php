@@ -47,6 +47,9 @@ final class GildedRose
                     $this->updateQualityForOrdinaryItem($item);
             }
 
+            $this->guardItemQualityLessThan50($item);
+            $this->guardItemQualityNotNegative($item);
+
             $item->sell_in--;
         }
     }
